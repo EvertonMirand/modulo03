@@ -1,5 +1,6 @@
 import User from '../models/User';
 import File from '../models/File';
+import Cache from '../../lib/Cache';
 
 class UserController {
   async store(req, res) {
@@ -14,7 +15,13 @@ class UserController {
     }
 
     const user = await User.create(req.body);
+
     const { id, name, email, provider } = user;
+
+    if (provider) {
+      await Cache.invalidate('providers');
+    }
+
     return res.json({ id, name, email, provider });
   }
 

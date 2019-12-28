@@ -1,11 +1,7 @@
-import { isBefore, subHours } from 'date-fns';
-
 import Appointment from '../models/Appointment';
 import User from '../models/User';
 import File from '../models/File';
 
-import CancellationMail from '../jobs/CancellationMail';
-import Queue from '../../lib/Queue';
 import CreateAppointmentService from '../services/CreateAppointmentService';
 import CancelAppointmentService from '../services/CancelAppointmentService';
 

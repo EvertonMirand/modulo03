@@ -7,7 +7,7 @@ import Queue from '../../lib/Queue';
 import CancellationMail from '../jobs/CancellationMail';
 
 class CancelAppointmentService {
-  async run({ provider_id, date, user_id }) {
+  async run({ provider_id, user_id }) {
     const appointment = await Appointment.findByPk(provider_id, {
       include: [
         {
